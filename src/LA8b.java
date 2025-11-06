@@ -1,11 +1,23 @@
-import java.util.*;
+import java.util.TreeSet;
+import java.util.Random;
 
 public class LA8b {
     public static void main(String[] args) {
-        // TODO: Create a TreeSet of Integers
-        // TODO: Randomly generate numbers (1–100)
-        // TODO: Add until the set has 20 unique values
-        // TODO: Print the set after each addition
-        // TODO: Print the final set
+        TreeSet<Integer> set = new TreeSet<>();
+        Random random = new Random();
+        while (set.size() < 20) {
+            int num = random.nextInt(100) + 1;
+            System.out.println("Adding: " + num);
+
+            boolean added = set.add(num);
+
+            if  (added) {
+                System.out.println("Set: " + set);
+            }
+            else {
+                System.out.println("Duplicate found, ignored.");
+            }
+        }
+        System.out.println("Final Set (20 numbers): " + set);
     }
 }
